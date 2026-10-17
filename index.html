@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Objek Wisata Kabupaten Banyumas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Carlito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    overflow-x: hidden;
+    background: #ffffff;
+    font-family: Calibri, Carlito, Arial, sans-serif;
+  }
+  /* Halaman 1 + 2 = 1920 x 2160 px, footer berada di dasar halaman ke-2 */
+  .wrapper { width: 1920px; display: flex; flex-direction: column; transform-origin: top left; }
+
+  /* ===== HEADER 1920 x 222 ===== */
+  header {
+    position: relative; width: 100%; height: 222px; background: #e6608c;
+    display: flex; align-items: center; justify-content: center;
+  }
+  header .logo { position: absolute; left: 20px; top: 16px; width: 330px; height: 92px; }
+  header h1 {
+    font-family: "Special Gothic Expanded One", Arial Black, sans-serif;
+    font-size: 50px; font-weight: 400; color: #ffffff;
+    text-align: center; line-height: 1.2;
+  }
+
+  /* ===== MENU 1920 x 160 ===== */
+  nav {
+    width: 100%; height: 160px; background: #ebb2c4;
+    display: flex; align-items: center; justify-content: center; gap: 18px;
+    padding: 0 47px;
+  }
+  nav button {
+    height: 60px; padding: 0 30px; border: none; border-radius: 30px;
+    font-family: Calibri, Carlito, Arial, sans-serif; font-size: 22px;
+    color: #e8004c; background: #ffffff; cursor: pointer; white-space: nowrap;
+  }
+  nav button.active { color: #ffffff; background: #e8004c; }
+
+  /* ===== TABEL ===== */
+  /* 1080 - header 222 - menu 160 = 698 px: footer mulai tepat di batas halaman pertama */
+  main { padding: 42px 53px 0; min-height: 698px; }
+  table { border-collapse: collapse; border: 1px solid #e8004c; table-layout: fixed; width: 100%; }
+  td {
+    height: 50px; padding: 0 21px; font-size: 22px; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+    border: 1px solid #e8004c;
+  }
+  td.fill  { background: #e8004c; color: #ffffff; }
+  td.plain { background: #ffffff; color: #e8004c; }
+  td.empty { border: none; background: transparent; }
+
+  /* ===== FOOTER 1920 x 345 ===== */
+  footer {
+    margin-top: auto; width: 100%; height: 345px; background: #e6608c; color: #ffffff;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 50px 55px 0;
+  }
+  footer .info { width: 940px; }
+  footer h2 {
+    font-size: 30px; font-weight: 700; line-height: 1.1;
+    text-align: justify; text-align-last: justify; margin-bottom: 20px;
+  }
+  footer h2 .last { text-align-last: left; display: block; }
+  footer p { font-size: 22px; line-height: 1.1; margin-bottom: 18px; }
+  footer .logo-footer { width: 488.7px; height: 99.5px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <img class="logo" src="https://dolanbanyumas.banyumaskab.go.id/assets/images/logo_dolan_bms2.png" alt="Logo Dolan Banyumas">
+    <h1>OBJEK WISATA<br>KABUPATEN BANYUMAS</h1>
+  </header>
+
+  <nav id="menu"></nav>
+
+  <main>
+    <table id="tabel"><tbody></tbody></table>
+  </main>
+
+  <footer>
+    <div class="info">
+      <h2>Dinas Pemuda, Olahraga, Kebudayaan Dan Pariwisata <span class="last">Kabupaten Banyumas</span></h2>
+      <p>Jl. Prof. Dr. Suharso No.45, Mangunjaya, Purwokerto Lor, Kec. Purwokerto Tim.,<br>Kabupaten Banyumas, Jawa Tengah 53114</p>
+      <p>(0281) 637629</p>
+      <p>dinporabudpar@banyumaskab.go.id</p>
+    </div>
+    <img class="logo-footer" src="https://banyumaskab.go.id/assets/img/logo-atas.png" alt="Logo Kabupaten Banyumas">
+  </footer>
+
+</div>
+
+<script>
+  const DATA = {
+    "WISATA ALAM": [
+      "Agro Karang Panginyongan","Agro Wisata Germanggis","Bukit Pangonan Indah","Bukit Tengtung",
+      "Curug Antap Cikakak","Curug Bayan","Curug Benda","Curug Blanjar","Curug Cipendok","Curug Dawa",
+      "Curug Gemawang","Curug Goa Kemranjen","Curug Gomblang","Curug Gong Kalikulu","Curug Jenggala",
+      "Curug Juneng","Curug Kalibacin","Curug Klapa","Curug Lanang","Curug Landak","Curug Lawa",
+      "Curug Loning","Curug Mbulu Kuning","Curug Minem","Curug Nangga","Curug Pasekan Sidamulih",
+      "Curug Penganten Lumbir","Curug Pen Pen","Curug Pinang","Curug Senthong","Curug Song","Curug Telu",
+      "Curug Tirta Sela","Damar Payung Adventure","De Damaran","Grojogan Ratu","Hutan Pinus Limpakuwus",
+      "Hutan Pinus Sawangan","Kebun Raya Baturraden","Lokawisata Baturraden","Menggala Ranch",
+      "Pagubugan Melung","Pancuran Pitu","Pancuran Telu","Pertapan Gerduren",
+      "Taman Banyu Kencana Watu Blencong","Telaga Kumpe","Telaga Sunyi","Wana Pramuka",
+      "Wanasuta Dermaji","Wana Wisata Baturraden"
+    ],
+    "WISATA BUATAN": [
+      "Arcelio Aquapark","Depo Bay","Dreamland","Embung Banteran","Kidung Kampoengku",
+      "Kolam Renang Karang Tirta","Lembu Benggolo farm & Resort","Menara Teratai","New Small Word",
+      "Prawita Garden","Taman Apung Mas Kemambang","Taman Botani","Taman Desa Randu Bengkong",
+      "Taman Impean","Taman Lokasana Asri","Taman Panemon","Taman Tirta Alami Pancasan",
+      "The Forest Island","The Village Purwokerto","Tirta Husada Kalibacin","Wisata Buken",
+      "Wisata Outbound Candi","Wisata Pereng"
+    ],
+    "WISATA BUDAYA": ["Taman Budaya Soetedja"],
+    "WISATA MINAT KHUSUS": [
+      "Kampung Nopia Mino","Mitra Jagawana Off Road","Oemah Gamelan","Sukan River Tubing",
+      "Watu Kumpul","Wikabalung Adventure"
+    ],
+    "WISATA RELIGI": [
+      "Goa Maria Kaliori","Makam Kyai Mranggi Semu","Makam Syekh Makdum Wali",
+      "Masjid Agung Nur Sulaiman","Masjid Saka Tunggal"
+    ],
+    "WISATA SEJARAH": [
+      "Makam R. Djoko Kahiman","Museum Bank Rakyat Indonesia",
+      "Museum Panglima Besar Jendral Soedirman","Museum Wayang Banyumas","Situs Watu Lumpang Cilongok"
+    ],
+    "WISATA TAMAN": [
+      "Agro Wisata Tunggul Mas","Kebun Buah Batur Agung","Kebun Buah Naga",
+      "Taman Edukasi Keselamatan Jalan","Taman Lazuardi","Taman Rekreasi Andhang Pangrenan",
+      "Taman Sirib","Taman Wisata Sentana"
+    ]
+  };
+
+  const KOLOM = 5;
+  const menu = document.getElementById("menu");
+  const tbody = document.querySelector("#tabel tbody");
+
+  function tampilkan(nama) {
+    // status tombol menu
+    menu.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.textContent === nama));
+
+    // isi tabel: 5 kolom, data diisi turun per kolom, warna selang-seling per baris
+    const items = DATA[nama];
+    const baris = Math.ceil(items.length / KOLOM);
+    tbody.innerHTML = "";
+    for (let r = 0; r < baris; r++) {
+      const tr = document.createElement("tr");
+      for (let c = 0; c < KOLOM; c++) {
+        const td = document.createElement("td");
+        const teks = items[c * baris + r];
+        if (teks) {
+          td.textContent = teks;
+          td.className = (r % 2 === 0) ? "fill" : "plain";
+        } else {
+          td.className = "empty";
+        }
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+  }
+
+  Object.keys(DATA).forEach(nama => {
+    const b = document.createElement("button");
+    b.textContent = nama;
+    b.addEventListener("click", () => tampilkan(nama));
+    menu.appendChild(b);
+  });
+
+  tampilkan("WISATA ALAM");
+
+  // ===== AUTO-SCALE: halaman 1920 px diskalakan mengikuti lebar jendela =====
+  const wrapper = document.querySelector(".wrapper");
+  function sesuaikanSkala() {
+    const skala = document.documentElement.clientWidth / 1920;
+    wrapper.style.transform = "scale(" + skala + ")";
+    // tinggi dokumen mengikuti hasil skala agar scroll vertikal tepat
+    document.body.style.height = (wrapper.offsetHeight * skala) + "px";
+  }
+  window.addEventListener("resize", sesuaikanSkala);
+  window.addEventListener("load", sesuaikanSkala);
+  sesuaikanSkala();
+</script>
+</body>
+</html>
