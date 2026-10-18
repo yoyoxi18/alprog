@@ -14,10 +14,9 @@
     background: #ffffff;
     font-family: Calibri, Carlito, Arial, sans-serif;
   }
-  /* Halaman 1 + 2 = 1920 x 2160 px, footer berada di dasar halaman ke-2 */
+  
   .wrapper { width: 1920px; display: flex; flex-direction: column; transform-origin: top left; }
 
-  /* ===== HEADER 1920 x 222 ===== */
   header {
     position: relative; width: 100%; height: 222px; background: #e6608c;
     display: flex; align-items: center; justify-content: center;
@@ -29,7 +28,6 @@
     text-align: center; line-height: 1.2;
   }
 
-  /* ===== MENU 1920 x 160 ===== */
   nav {
     width: 100%; height: 160px; background: #ebb2c4;
     display: flex; align-items: center; justify-content: center; gap: 18px;
@@ -42,8 +40,6 @@
   }
   nav button.active { color: #ffffff; background: #e8004c; }
 
-  /* ===== TABEL ===== */
-  /* 1080 - header 222 - menu 160 = 698 px: footer mulai tepat di batas halaman pertama */
   main { padding: 42px 53px 0; min-height: 698px; }
   table { border-collapse: collapse; border: 1px solid #e8004c; table-layout: fixed; width: 100%; }
   td {
@@ -55,7 +51,6 @@
   td.plain { background: #ffffff; color: #e8004c; }
   td.empty { border: none; background: transparent; }
 
-  /* ===== FOOTER 1920 x 345 ===== */
   footer {
     margin-top: auto; width: 100%; height: 345px; background: #e6608c; color: #ffffff;
     display: flex; justify-content: space-between; align-items: flex-start;
@@ -145,10 +140,9 @@
   const tbody = document.querySelector("#tabel tbody");
 
   function tampilkan(nama) {
-    // status tombol menu
+    
     menu.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.textContent === nama));
 
-    // isi tabel: 5 kolom, data diisi turun per kolom, warna selang-seling per baris
     const items = DATA[nama];
     const baris = Math.ceil(items.length / KOLOM);
     tbody.innerHTML = "";
@@ -178,12 +172,11 @@
 
   tampilkan("WISATA ALAM");
 
-  // ===== AUTO-SCALE: halaman 1920 px diskalakan mengikuti lebar jendela =====
   const wrapper = document.querySelector(".wrapper");
   function sesuaikanSkala() {
     const skala = document.documentElement.clientWidth / 1920;
     wrapper.style.transform = "scale(" + skala + ")";
-    // tinggi dokumen mengikuti hasil skala agar scroll vertikal tepat
+    
     document.body.style.height = (wrapper.offsetHeight * skala) + "px";
   }
   window.addEventListener("resize", sesuaikanSkala);
